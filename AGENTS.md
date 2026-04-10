@@ -10,6 +10,9 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 
 Before doing anything else:
 
+0. Read `/root/.openclaw/COMPANY_CORE_POLICY.md` — **🔴 公司核心准则（最高优先级）**
+0.5. Read `/root/.openclaw/BROWSER_GUIDELINES.md` — **🔴 浏览器操作准则（节点别名、操作方式，必读）**
+0.7. Read `/root/.openclaw/REMOTE_FILE_GUIDELINES.md` — **🔴 远程文件操作准则（操作远程节点文件时必读）** — **🔴 浏览器操作准则（必读）**
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
