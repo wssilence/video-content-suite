@@ -217,11 +217,11 @@ This is a starting point. Add your own conventions, style, and rules as you figu
 
 ---
 
-## 📸 飞书发图片准则（2026-04-02）
+## 📸 飞书发图片准则（2026-04-11）
 
 所有 Agent 发送图片到飞书的标准操作：
 
-### 方法 1：使用 message 工具（推荐）
+### ✅ 标准方法：使用 message 工具（必须用这个）
 
 ```javascript
 message({
@@ -233,7 +233,9 @@ message({
 })
 ```
 
-### 方法 2：使用 feishu_im_user_message 工具（以用户身份）
+### ⚠️ 方法 2：feishu_im_user_message（仅限有 image_key 时使用）
+
+**只有已拿到 image_key（img_xxx）时才用此方法，否则一律用方法1。**
 
 ```javascript
 feishu_im_user_message({
@@ -246,9 +248,17 @@ feishu_im_user_message({
 ```
 
 ### 注意事项
-- `media` 参数支持本地文件路径
-- `caption` 为可选参数，用于添加图片说明
-- `to` 参数可以是 `user:ou_xxx`（私聊）或 `chat:oc_xxx`（群聊）
-- 图片会自动上传到飞书并发送
+- 发本地图片 → **只用方法1**，`media` 填本地路径，自动上传
+- `to` 参数：私聊用 `user:ou_xxx`，群聊用 `chat:oc_xxx`
+- `caption` 可选，图片说明文字
 
 ---
+
+---
+
+## 飞书机器人互相 @ 映射表
+
+在群里 @ 另一个 Agent 时，需要使用对方的 open_id：
+- 完整映射表：`/root/.openclaw/FEISHU_BOT_IDS.json`
+- 格式：`<at email="" open_id="ou_xxx">@Agent名称</at>`
+- 注意：requireMention=true 时，只有消息中包含自己 open_id 的 @ 才会响应
